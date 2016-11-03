@@ -1,12 +1,14 @@
 #Tools and Utilities
 
 This repo contains pieces of code that I use either frequently or only once.
-It's a perpetual work in progress. 
+
+It's a perpetual work in progress.
+
 .csx files require [scriptcs](http://scriptcs.net/)
 
 ## Description and sample usage:
 
-# scripts\delete-directories.csx
+### scripts\delete-directories.csx
 Deletes (after receiving confirmation) all directories inside `path` that contain any of the elements of the `pattern` 
 
 Sample:
@@ -19,9 +21,11 @@ DeleteDirectories("H:\\Premiere", new List<string>
 });
 ```
 
-# scripts\file-automation.csx
+### scripts\file-automation.csx
 Watches for file changes and copies modified files. 
+
 Optionally executes a custom `Action` afterwards.
+
 _I use it to copy build output to a remote share, and again from there to a remote desktop. After copying to a remote desktop, I start a `Process` that does extra work_
 
 Sample:
