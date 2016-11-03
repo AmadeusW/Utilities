@@ -9,6 +9,11 @@ var pattern = new List<CopyOrder> { ... };
 FileProcessor.Start(pattern);
 */
 
+static void Log(string message)
+{
+    Console.WriteLine(String.Concat(DateTime.Now.ToString("hh:mm:ss"), " ", message));
+}
+
 class FileProcessor
 {
     public static void Start(IEnumerable<CopyOrder> orders, bool forceCopy = false)
@@ -47,11 +52,6 @@ class CopyOrder
         Destination = destination;
         OnCompleted = onCompleted;
         _tokenSource = new CancellationTokenSource();
-    }
-
-    static void Log(string message)
-    {
-        Console.WriteLine(String.Concat(DateTime.Now.ToString("hh:mm:ss"), " ", message));
     }
 
     public async Task Act()
@@ -97,7 +97,7 @@ class CopyOrder
         if (OnCompleted != null)
         {
             Log("Invoking post-copy action...");
-            OnCompleted.Invoke();`
+            OnCompleted.Invoke();
         }
     }
 }
