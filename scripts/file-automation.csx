@@ -4,29 +4,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using System;
 
-// Usage: var hostPattern = new List<CopyOrder> { ... }; CopyOrder.Start(hostPattern);
+/* Usage:
+var pattern = new List<CopyOrder> { ... }; 
+FileProcessor.Start(pattern);
+*/
 
-class CopyOrder
+class FileProcessor
 {
-    public string Source;
-    public string Destination;
-    public Action OnCompleted;
-    private CancellationTokenSource _tokenSource;
-
-    public CopyOrder(string source, string destination, Action onCompleted = null)
-    {
-        Source = source;
-        Destination = destination;
-        OnCompleted = onCompleted;
-        _tokenSource = new CancellationTokenSource();
-    }
-
-    static void Log(string message)
-    {
-        Console.WriteLine(String.Concat(DateTime.Now.ToString("hh:mm:ss"), " ", message));
-    }
-
-    static void Start(IEnumerable<CopyOrder> orders, bool forceCopy = false)
+    public static void Start(IEnumerable<CopyOrder> orders, bool forceCopy = false)
     {
         foreach (var order in orders)
         {
@@ -46,6 +31,27 @@ class CopyOrder
                 });
             }
         }
+    }
+}
+
+class CopyOrder
+{
+    public string Source;
+    public string Destination;
+    public Action OnCompleted;
+    private CancellationTokenSource _tokenSource;
+
+    public CopyOrder(string source, string destination, Action onCompleted = null)
+    {
+        Source = source;
+        Destination = destination;
+        OnCompleted = onCompleted;
+        _tokenSource = new CancellationTokenSource();
+    }
+
+    static void Log(string message)
+    {
+        Console.WriteLine(String.Concat(DateTime.Now.ToString("hh:mm:ss"), " ", message));
     }
 
     public async Task Act()
