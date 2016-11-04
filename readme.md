@@ -36,7 +36,7 @@ var hostPattern = new List<CopyOrder>
     new CopyOrder(@"C:\file1.txt", @"\\share\file1.txt"),
     new CopyOrder(@"C:\file2.txt", @"\\share\file2.txt"),
 };
-CopyOrder.Start(hostPattern);
+FileProcessor.Start(hostPattern);
 ```
 ```csharp
 #load file-automation.csx
@@ -45,6 +45,6 @@ var clientPattern = new List<CopyOrder>
     new CopyOrder(@"\\share\file1.txt", @"D:\file1.txt", () => { /* file1 custom action */ }),
     new CopyOrder(@"\\share\file2.txt", @"D:\file2.txt", () => { /* file2 custom action */ }),
 };
-CopyOrder.Start(clientPattern);
+FileProcessor.Start(clientPattern);
 ```
-
+To force-copy files when the script starts, use `FileProcessor.Start(pattern, force: true);` 
