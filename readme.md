@@ -48,3 +48,28 @@ var clientPattern = new List<CopyOrder>
 FileProcessor.Start(clientPattern);
 ```
 To force-copy files when the script starts, use `FileProcessor.Start(pattern, force: true);` 
+
+### scripts\fusion-log.csx
+Enables or disables the Fusion Log capabilities.
+Stores logs in `%temp%\FusionLog`
+
+_Fusion Log is heavy on resources, so I keep it enabled only when I need it._
+
+Sample:
+Run VS developer command prompt *as administrator*
+
+To toggle Fusion Log:
+```
+csi "D:\Utilities\scripts\fusion-log.csx"
+```
+
+To explicitly enable Fusion Log:
+```
+csi "D:\Utilities\scripts\fusion-log.csx" 1
+```
+
+To explicitly disable Fusion Log:
+
+```
+csi "D:\Utilities\scripts\fusion-log.csx" 0
+```
