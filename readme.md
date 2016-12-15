@@ -7,6 +7,7 @@ Some .csx files require [scriptcs](http://scriptcs.net/), some work with just [c
 * [Delete directories that match pattern](#scriptsdelete-directoriescsx)
 * [Watch for file changes and copy updated files](#scriptsfile-automationcsx)
 * [Enable and disable Fusion Log](#scriptsfusion-logcsx)
+* [Brings my favorite git aliases](#scriptsgit-aliascmd)
 
 ## Description and sample usage:
 
@@ -79,6 +80,25 @@ To explicitly disable Fusion Log:
 ```
 csi "D:\Utilities\scripts\fusion-log.csx" 0
 ```
+
+---
+
+### scripts\git-alias.cmd
+Brings my favorite git aliases
+
+_Comes in handy on a freshly installed OS_
+
+The ones I use a lot:
+
+* `git put "commit message"` commits all unstaged files in single command
+* `git st` shows status in a minimal format
+* `git last` shows details of the last commit
+
+These I haven't had a chance to use a lot:
+
+* `git ls` shows log with _pretty_ and _short_ flags
+* `git amend` modifies previous commit
+* `git please` is `push --force-with-lease`
 
 ---
 
