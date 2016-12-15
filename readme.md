@@ -23,6 +23,8 @@ DeleteDirectories("H:\\Premiere", new List<string>
 });
 ```
 
+---
+
 ### scripts\file-automation.csx
 Watches for file changes and copies modified files. 
 
@@ -51,6 +53,8 @@ FileProcessor.Start(clientPattern);
 ```
 To force-copy files when the script starts, use `FileProcessor.Start(pattern, force: true);` 
 
+---
+
 ### scripts\fusion-log.csx
 Enables or disables the Fusion Log capabilities.
 Stores logs in `%temp%\FusionLog`
@@ -75,3 +79,6 @@ To explicitly disable Fusion Log:
 ```
 csi "D:\Utilities\scripts\fusion-log.csx" 0
 ```
+
+---
+
