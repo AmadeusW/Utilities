@@ -2,9 +2,11 @@
 
 This repo contains pieces of code that I use either frequently or only once.
 
-It's a perpetual work in progress.
+Some .csx files require [scriptcs](http://scriptcs.net/), some work with just [csi](https://msdn.microsoft.com/en-us/magazine/mt614271.aspx)
 
-.csx files require [scriptcs](http://scriptcs.net/)
+* [Delete directories that match pattern](#scripts\delete-directories.csx)
+* [Watch for file changes and copy updated files](#scripts\file-automation.csx)
+* [Enable and disable Fusion Log](#scripts\fusion-log.csx)
 
 ## Description and sample usage:
 
