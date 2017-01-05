@@ -1,6 +1,6 @@
-git alias.st status --short
-git alias.last log --stat -1 HEAD
-git alias.ls log --stat --pretty=short --graph
-git alias.put !git add .; git commit -m
-git alias.please push --force-with-lease
-git alias.amend commit --amend --no-edit
+git config --global alias.st "status --short"
+git config --global alias.last "log --stat -1 HEAD"
+git config --global alias.ls "log --stat --pretty=short --graph"
+git config --global alias.put "!git add .; git commit -m"
+git config --global alias.please "push --force-with-lease"
+git config --global alias.amend "commit --amend --no-edit"
