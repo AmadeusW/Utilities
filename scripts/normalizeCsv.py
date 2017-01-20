@@ -1,4 +1,7 @@
-"""Script originally written to fix  """
+"""
+Script originally written to fix BenchmarkDotNet output
+that contained units in the CSV data.
+"""
 
 import argparse
 import csv
@@ -15,11 +18,11 @@ parser.add_argument('unit', metavar='unit', nargs='?',
 args = parser.parse_args()
 unitHistogram = {}
 
-with open (args.filename, 'r') as csvfile:
+with open(args.filename, 'r') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         target = row[args.column]
-        if target == None:
+        if target is None:
             raise ValueError()
         print(target)
 
