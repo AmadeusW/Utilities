@@ -16,6 +16,7 @@ parser.add_argument('unit', metavar='unit', nargs='?',
                     help='target unit. Leave blank for most popular unit.')
 args = parser.parse_args()
 
+REGEX = r"([\d,]*(\.\d+)?)\s*((\D)*)"
 FACTORS = { 
     's': 1, 'ms': 1000, 'us': 1000*1000, 'ns': 1000*1000*1000,
     'B': 1, 'kB': 1024, 'MB': 1024*1024, 'GB': 1024*1024*1024
@@ -33,7 +34,7 @@ with open(args.filename, 'r') as csvfile:
             target = row[args.column]
             if target is None:
                 raise ValueError()
-            matches = re.search(r"(\d*(\.\d+)?)\s*((\D)*)", target)
+            matches = re.search(REGEX, target)
             currentUnit = matches.group(3)
             unitHistogram.setdefault(currentUnit, 0)
             unitHistogram[currentUnit] = unitHistogram[currentUnit] + 1
@@ -47,7 +48,7 @@ with open(args.filename, 'r') as csvfile:
         target = row[args.column]
         if target is None:
             raise ValueError()
-        matches = re.search(r"(\d*(\.\d+)?)\s*((\D)*)", target)
+        matches = re.search(REGEX, target)
         currentUnit = matches.group(3)
         if (currentUnit not in FACTORS):
             print('No known conversion for ' + matches.group(3))
@@ -57,5 +58,6 @@ with open(args.filename, 'r') as csvfile:
         else:
             print('Converting ' + matches.group(1) + '[' + matches.group(3) + '] into [' + unit + ']' )
         factor = FACTORS[unit] / FACTORS[currentUnit]
-        newValue = float(matches.group(1)) * factor
+        newValue = float(matches.group(1).replace(',','')) * factor
         print('New value is ' + str(newValue) + '[' + unit + ']')
+        row[args.column] = newValue
