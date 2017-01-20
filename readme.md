@@ -93,6 +93,7 @@ The ones I use a lot:
 * `git put "commit message"` commits all unstaged files in single command
 * `git st` shows status in a minimal format
 * `git last` shows details of the last commit
+* `git diffs` shows details of staged changes - `diff --cached`
 
 These I haven't had a chance to use a lot:
 
@@ -102,3 +103,29 @@ These I haven't had a chance to use a lot:
 
 ---
 
+### scripts\normalize-csv.py
+Normalizes magnitude of values in specified column of a CSV file, 
+removes unit and places it in the column header.
+
+_Benchmark DotNet 0.10.1 produces .csv files that can't be easily analyzed in software_
+
+Sample:
+```
+python .\normalize-csv.py "D:\sample.csv" Allocated
+```
+Turns
+```
+...,Allocated,...
+...,0.987 s,...
+...,1,234 ms,...
+....512.32 ms,...
+```
+into
+```
+...,Allocated [ms],...
+...,987,...
+...,1234,...
+....512.32,...
+```
+
+---
