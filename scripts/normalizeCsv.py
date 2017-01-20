@@ -49,7 +49,10 @@ with open(args.filename, 'r') as csvfile:
             raise ValueError()
         matches = re.search(r"(\d*(\.\d+)?)\s*((\D)*)", target)
         currentUnit = matches.group(3)
-        if (currentUnit == unit):
+        if (currentUnit not in FACTORS):
+            print('No known conversion for ' + matches.group(3))
+            # TODO: Skip the rest of the conversion
+        elif (currentUnit == unit):
             print('No conversion necessary for ' + matches.group(1) + '[' + matches.group(3) + ']')
         else:
             print('Converting ' + matches.group(1) + '[' + matches.group(3) + '] into [' + unit + ']' )
