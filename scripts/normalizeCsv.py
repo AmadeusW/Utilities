@@ -8,5 +8,9 @@ parser.add_argument('unit', metavar='unit', nargs='?', help='target unit. Leave 
 
 args = parser.parse_args()
 
-#with open (filename, 'rb') as csvfile:
+with open (filename, 'w') as csvfile:
+    reader = csv.reader(csvfile)
+    headers = reader.next()
+    column = headers.index(args.column)
+    print(column)
     
