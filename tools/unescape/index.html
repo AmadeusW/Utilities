@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <title>Unescape</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script type='text/javascript'>
+        // work
+        function process() {
+            document.getElementById('result').innerText = unescape(escaped.value.replace(/['"]+/g, ''));
+            hljs.highlightBlock(document.getElementById('result'));
+        };
+    </script>
+</head>
+<body class="hljs" style="font-family: monospace">
+    <div style="display: flex; justify-content: center;">
+        <p>
+            <span class="hljs-tag">unescape(</span><span class="hljs-keyword">'</span>
+        </p>
+        <textarea id='escaped' rows='5' oninput="process()" class="hljs" style="flex: 1"></textarea>
+        <p>
+            <span class="hljs-keyword">'</span><span class="hljs-tag">);</span>
+        </p>
+    </div>
+    <pre><code  id="result"></code></pre>
+    <br /><br /><br /><br />
+    <p><a href="https://github.com/amadeusw/unescape">https://github.com/amadeusw/unescape</a></p>
+</body>
+<script type='text/javascript'>
+    // sample
+    document.getElementById('escaped').innerText = "%09%3c%74%64%20%63%6c%61%73%73%3d%22%74%78%74%70%61%64%22%3e%3c%69%6e%70%75%74%20%69%64%3d%22%70%61%73%73%77%6f%72%64%22%20%6e%61%6d%65%3d%22%70%61%73%73%77%6f%72%64%22%20%74%79%70%65%3d%22%70%61%73%73%77%6f%72%64%22%20%63%6c%61%73%73%3d%22%74%78%74%22%20%6f%6e%46%6f%63%75%73%3d%22%67%5f%66%46%63%73%3d%30%22%3e%3c%2f%74%64%3e%0d";
+    process();
+</script>
+</html>
