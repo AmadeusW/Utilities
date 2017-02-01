@@ -1,6 +1,6 @@
 #Tools and Utilities
 
-This repo contains pieces of code that come in handy now or at some point in the past.
+This repo contains pieces of code that are useful now or at some point in the past.
 
 ## [Tools](/tools)
 * [javascript unescape](/tools#toolsunescape) [[use now]](http://amadeusw.com/utilities/tools/unescape/)
