@@ -8,6 +8,7 @@ Some .csx files require [scriptcs](http://scriptcs.net/), some work with just [c
 * [Watch for file changes and copy updated files](#scriptsfile-automationcsx)
 * [Enable and disable Fusion Log](#scriptsfusion-logcsx)
 * [Brings my favorite git aliases](#scriptsgit-aliascmd)
+* [Normalizes BenchmarkDotNet csv output](#scriptsnormalize-csvpy)
 
 ## Description and sample usage:
 
@@ -107,7 +108,7 @@ These I haven't had a chance to use a lot:
 Normalizes magnitude of values in specified column of a CSV file, 
 removes unit and places it in the column header.
 
-_Benchmark DotNet 0.10.1 produces .csv files that can't be easily analyzed in software_
+_BenchmarkDotNet 0.10.1 produces .csv files that can't be easily analyzed in software_
 
 Sample:
 ```
@@ -117,7 +118,7 @@ Turns
 ```
 ...,Allocated,...
 ...,0.987 s,...
-...,1,234 ms,...
+...,"1,234 ms",...
 ....512.32 ms,...
 ```
 into
