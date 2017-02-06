@@ -95,10 +95,11 @@ The ones I use a lot:
 * `git st` shows status in a minimal format
 * `git last` shows details of the last commit
 * `git diffs` shows details of staged changes - `diff --cached`
+* `git diffl` shows diff of the last change - `diff HEAD HEAD~`
+* `git ls` shows log with _stat_, _graph_ and _oneline_ flags
 
 These I haven't had a chance to use a lot:
 
-* `git ls` shows log with _pretty_ and _short_ flags
 * `git amend` modifies previous commit
 * `git please` is `push --force-with-lease`
 
