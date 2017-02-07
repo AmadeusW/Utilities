@@ -11,9 +11,14 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body class="hljs">
+    <button id="add">New window</button>
     <div id="main">
-        <section>
-            <div><span class="handle">≡<span class="name">Title</span></span><span class="edit">…<span><span class="size">↕<span></div>
+        <section id="template">
+            <div class="header">
+                <span class="handle">≡ <span class="name">Title</span></span>
+                <button class="edit">…<span>
+                <button class="size">↕<span>
+            </div>
             <div>Comment</div>
             <div><pre><code>Code</pre></code></div>
         </section>

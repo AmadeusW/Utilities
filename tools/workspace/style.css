@@ -11,3 +11,11 @@ section {
     display: flex;
     justify-content: flex-start;
 }
+
+#template {
+    display: none;
+}
+
+section > .header {
+    padding: 2px;
+}
