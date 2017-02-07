@@ -4,16 +4,31 @@ var elementId = 0;
 $( function() {
 
     $("#add").click(function(event) {
-        elementId++;
-        var id = "section"+elementId;
-        console.log("Creating " + id);
-        var newItem = {
-            title: "New window",
-            comment: "sample text",
-            code: "sample textt",
-            showing: 2,
-            editing: 1,
+        createElement();
+    });
+    function createElement(setId = 0) {
+        var id = "";
+        if (setId == 0) {
+            elementId++;
+            Window.localStorage.setItem('count', id);
+            var id = "section"+elementId;
+            console.log("Creating " + id);
+            var newItem = {
+                title: "New window",
+                comment: "sample text",
+                code: "sample textt",
+                showing: 2,
+                editing: 1,
+            }
+            state[id] = newItem;
+        } else
+        {
+            var id = "section"+setId;
+            console.log("Loading " + id);
+            state[id] = Window.localStorage.getItem(id);
         }
+        render(id);
+
         var section = $("#template").clone().attr("id", id).appendTo("#main");
         section.draggable({ 
             cursor: "move", 
@@ -42,14 +57,23 @@ $( function() {
                 state[id].editing = 1;
             } else {
                 state[id].editing = 0;
-                // save changes
+                state[id].title = $("#"+id+" > .header > .handle > input").val();
+                state[id].comment = $("#"+id+" > .header > .comment > textarea").val();
+                state[id].code = $("#"+id+" > .header > .code > textarea").val();
+                console.log(state[id]);
+                Window.localStorage.setItem(id, state[id]);
             }
             render(id);
         });
-        state[id] = newItem;
-        render(id);
-    });
+    };
 
+    // Load stuff when page loads
+    if (Window.localStorage.length > 0) {
+        var storedItems = Window.localStorage.getItem('count');
+        for (var i = 0; i < storedItems; i++) {
+            createElement(i);
+        }
+    }
 });
 
 function render(id) {
