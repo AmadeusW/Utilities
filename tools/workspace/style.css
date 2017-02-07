@@ -16,6 +16,25 @@ section {
     display: none;
 }
 
+section {
+    display: flex;
+    flex-direction: column;
+}
+
 section > .header {
-    padding: 2px;
+    padding: 1px;
+    display: flex;
+    justify-content: space-between;
+}
+
+section > .header > .handle {
+    flex-grow: 1;
+    padding: 1px 4px;
+    background-color: buttonface;
+    color: buttontext;
+    cursor: move;
+}
+
+section > .header > .buttons {
+    flex-shrink: 0;
 }
