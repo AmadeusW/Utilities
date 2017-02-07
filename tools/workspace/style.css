@@ -4,6 +4,7 @@ body {
 
 section {
     width: 600px;
+    border: 1px solid #dd9;
 }
 
 #main {
