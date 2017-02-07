@@ -38,3 +38,7 @@ section > .header > .handle {
 section > .header > .buttons {
     flex-shrink: 0;
 }
+
+.hidden {
+    display: none;
+}

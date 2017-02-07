@@ -11,8 +11,8 @@ $( function() {
             title: "New window",
             comment: "sample text",
             code: "sample textt",
-            state: 0,
-            editing: 0,
+            showing: 2,
+            editing: 1,
         }
         var section = $("#template").clone().attr("id", id).appendTo("#main");
         section.draggable({ 
@@ -22,11 +22,32 @@ $( function() {
             scroll: true, 
             scrollSensitivity: 100 }
         );
+        $("#"+id+" > .header > .buttons > .size").click(function(event) {
+            switch (state[id].showing) {
+                case 0:
+                    state[id].showing = 1;
+                    break;
+                case 1:
+                    state[id].showing = 2;
+                    break;
+                case 2:
+                default:
+                    state[id].showing = 0;
+                    break;
+            }
+            render(id);
+        });
         $("#"+id+" > .header > .buttons > .edit").click(function(event) {
-            state[id].editing = state[id].editing == 1 ? 0 : 1;
+            if (state[id].editing == 0) {
+                state[id].editing = 1;
+            } else {
+                state[id].editing = 0;
+                // save changes
+            }
             render(id);
         });
         state[id] = newItem;
+        render(id);
     });
 
 });
@@ -42,5 +63,15 @@ function render(id) {
         $("#"+id+" > .header > .handle").html(state[id].title);
         $("#"+id+" > .comment").html(state[id].comment);
         $("#"+id+" > .code").html(state[id].code);
+    }
+    if (state[id].showing == 0) {
+        $("#"+id+" > .comment").addClass("hidden");
+        $("#"+id+" > .code").addClass("hidden");
+    } else if (state[id].showing == 1) {
+        $("#"+id+" > .comment").removeClass("hidden");
+        $("#"+id+" > .code").addClass("hidden");
+    } else if (state[id].showing == 2) {
+        $("#"+id+" > .comment").removeClass("hidden");
+        $("#"+id+" > .code").removeClass("hidden");
     }
 }
