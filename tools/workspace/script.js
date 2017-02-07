@@ -9,8 +9,8 @@ $( function() {
         console.log("Creating " + id);
         var newItem = {
             title: "New window",
-            comment: "",
-            code: "",
+            comment: "sample text",
+            code: "sample textt",
             state: 0,
             editing: 0,
         }
@@ -23,14 +23,24 @@ $( function() {
             scrollSensitivity: 100 }
         );
         $("#"+id+" > .header > .buttons > .edit").click(function(event) {
-            console.log("Editing " + id);
-            $("#newId > .header > .handle > .name").replaceWith("<input type='text'>Title</input>");
-            $("#newId > .comment").replaceWith("<textarea>comment</textarea>");
-            $("#newId > .code").replaceWith("<textarea>code</textarea>");
-            console.log(state);
-            state[id].editing = 1;
+            state[id].editing = state[id].editing == 1 ? 0 : 1;
+            render(id);
         });
         state[id] = newItem;
     });
 
 });
+
+function render(id) {
+     console.log("Rendering " + id);
+     console.log(state[id]);
+     if (state[id].editing == 1) {
+        $("#"+id+" > .header > .handle").html("<input type='text' value='" + state[id].title + "' />");
+        $("#"+id+" > .comment").html("<textarea>" + state[id].comment + "</textarea>");
+        $("#"+id+" > .code").html("<textarea>"+ state[id].code + "</textarea>");
+    } else {
+        $("#"+id+" > .header > .handle").html(state[id].title);
+        $("#"+id+" > .comment").html(state[id].comment);
+        $("#"+id+" > .code").html(state[id].code);
+    }
+}
