@@ -10,7 +10,7 @@ $( function() {
         var id = "";
         if (setId == 0) {
             elementId++;
-            Window.localStorage.setItem('count', id);
+            window.localStorage.setItem('count', elementId);
             var id = "section"+elementId;
             console.log("Creating " + id);
             var newItem = {
@@ -25,9 +25,8 @@ $( function() {
         {
             var id = "section"+setId;
             console.log("Loading " + id);
-            state[id] = Window.localStorage.getItem(id);
+            state[id] = window.localStorage.getItem(id);
         }
-        render(id);
 
         var section = $("#template").clone().attr("id", id).appendTo("#main");
         section.draggable({ 
@@ -58,23 +57,54 @@ $( function() {
             } else {
                 state[id].editing = 0;
                 state[id].title = $("#"+id+" > .header > .handle > input").val();
-                state[id].comment = $("#"+id+" > .header > .comment > textarea").val();
-                state[id].code = $("#"+id+" > .header > .code > textarea").val();
+                state[id].comment = $("#"+id+" > .comment > textarea").val();
+                state[id].code = $("#"+id+" > .code > textarea").val();
                 console.log(state[id]);
-                Window.localStorage.setItem(id, state[id]);
+                window.localStorage.setItem(id, state[id]);
             }
             render(id);
         });
+        render(id);
     };
 
     // Load stuff when page loads
-    if (Window.localStorage.length > 0) {
-        var storedItems = Window.localStorage.getItem('count');
+    console.log("See if we can load data");
+    if (window.localStorage.length > 0) {
+        console.log("okay...");
+        var storedItems = window.localStorage.getItem('count');
+        console.log(storedItems + " items");
         for (var i = 0; i < storedItems; i++) {
             createElement(i);
         }
     }
 });
+
+function storageAvailable(type) {
+	try {
+		var storage = window[type],
+			x = '__storage_test__';
+		storage.setItem(x, x);
+		storage.removeItem(x);
+		return true;
+	}
+	catch(e) {
+        console.log(e);
+		return false;
+	}
+}
+
+if (storageAvailable('localStorage')) {
+	console.log('localStorage ok');
+}
+else {
+	console.log("no localstorage");
+}
+if (storageAvailable('sessionStorage')) {
+	console.log('sessionStorage ok');
+}
+else {
+	console.log("no sessionStorage");
+}
 
 function render(id) {
      console.log("Rendering " + id);
