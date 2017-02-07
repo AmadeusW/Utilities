@@ -12,7 +12,7 @@ $( function() {
             elementId++;
             window.localStorage.setItem('count', elementId);
             var id = "section"+elementId;
-            console.log("Creating " + id);
+            console.log("Creating new " + id);
             var newItem = {
                 title: "New window",
                 comment: "sample text",
@@ -25,7 +25,8 @@ $( function() {
         {
             var id = "section"+setId;
             console.log("Loading " + id);
-            state[id] = window.localStorage.getItem(id);
+            state[id] = JSON.parse(window.localStorage.getItem(id));
+            console.log(JSON.stringify(state[id]));
         }
 
         var section = $("#template").clone().attr("id", id).appendTo("#main");
@@ -59,8 +60,8 @@ $( function() {
                 state[id].title = $("#"+id+" > .header > .handle > input").val();
                 state[id].comment = $("#"+id+" > .comment > textarea").val();
                 state[id].code = $("#"+id+" > .code > textarea").val();
-                console.log(state[id]);
-                window.localStorage.setItem(id, state[id]);
+                console.log("Saving " + id);
+                window.localStorage.setItem(id, JSON.stringify(state[id]));
             }
             render(id);
         });
@@ -73,7 +74,7 @@ $( function() {
         console.log("okay...");
         var storedItems = window.localStorage.getItem('count');
         console.log(storedItems + " items");
-        for (var i = 0; i < storedItems; i++) {
+        for (var i = 1; i <= storedItems; i++) {
             createElement(i);
         }
     }
@@ -108,7 +109,6 @@ else {
 
 function render(id) {
      console.log("Rendering " + id);
-     console.log(state[id]);
      if (state[id].editing == 1) {
         $("#"+id+" > .header > .handle").html("<input type='text' value='" + state[id].title + "' />");
         $("#"+id+" > .comment").html("<textarea>" + state[id].comment + "</textarea>");
