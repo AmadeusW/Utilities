@@ -108,15 +108,18 @@ else {
 }
 
 function render(id) {
-     console.log("Rendering " + id);
-     if (state[id].editing == 1) {
+    console.log("Rendering " + id);
+    if (state[id].editing == 1) {
         $("#"+id+" > .header > .handle").html("<input type='text' value='" + state[id].title + "' />");
         $("#"+id+" > .comment").html("<textarea>" + state[id].comment + "</textarea>");
         $("#"+id+" > .code").html("<textarea>"+ state[id].code + "</textarea>");
     } else {
         $("#"+id+" > .header > .handle").html(state[id].title);
         $("#"+id+" > .comment").html(state[id].comment);
-        $("#"+id+" > .code").html(state[id].code);
+        $("#"+id+" > .code").html("<pre><code class='csharp'>" + state[id].code + "</code></pre>");
+        $("#"+id+" > .code > pre > code").each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
     }
     if (state[id].showing == 0) {
         $("#"+id+" > .comment").addClass("hidden");
