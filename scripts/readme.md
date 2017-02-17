@@ -97,6 +97,7 @@ The ones I use a lot:
 * `git diffs` shows details of staged changes - `diff --cached`
 * `git diffl` shows diff of the last change - `diff HEAD HEAD~`
 * `git ls` shows log with _stat_, _graph_ and _oneline_ flags
+* `git d` shows minimal diff of not staged files, followed by minimal status
 
 These I haven't had a chance to use a lot:
 
