@@ -1,6 +1,6 @@
 """
-Script originally written to fix BenchmarkDotNet output
-that contained units in the CSV data.
+Normalizes magnitude of values in specified column of a CSV file, removes unit and places it in the column header.
+Usage: python .\normalize-csv.py "file.csv" Mean
 """
 
 import argparse
@@ -12,26 +12,29 @@ parser = argparse.ArgumentParser(description="Clean up units in CSV file.")
 parser.add_argument('filename', metavar='filename',
                     help='file to process.')
 parser.add_argument('column', metavar='column',
-                    help='column to process.')
+                    help='name of column to process.')
 parser.add_argument('unit', metavar='unit', nargs='?',
-                    help='target unit. Leave blank for most popular unit.')
+                    help='target unit. Leave blank to use the most popular unit.')
 args = parser.parse_args()
 
 REGEX = r"([\d,]*(\.\d+)?)\s*((\D)*)"
 FACTORS = { 
-    's': 1, 'ms': 1000, 'us': 1000*1000, 'ns': 1000*1000*1000,
-    'B': 1024*1024*1024, 'kB': 1024*1024, 'MB': 1024, 'GB': 1
+    'ns': 1, 'us': 1000, 'ms': 1000*1000, 's': 1000*1000*1000,
+    'B': 1, 'kB': 1000*1000, 'MB': 1000*1000*1000, 'GB': 1000*1000*1000*1000
 }
 
-originalName = args.filename + '.orig'
+# Back up the file
+originalName = args.filename + '.original'
 os.replace(args.filename, originalName)
+
 with open(originalName, 'r') as csvfile:
     reader = csv.DictReader(csvfile)
     rows = list(reader)
     headers = list(rows[0])
     unit = args.unit
-    # First pass: determine which unit is the most common
+
     if unit is None:
+        # Find the most common unit
         unitHistogram = {}
         for row in rows:
             target = row[args.column]
@@ -69,12 +72,12 @@ with open(originalName, 'r') as csvfile:
                 print('No known conversion for ' + matches.group(3))
                 newValue = float(matches.group(1).replace(',',''))
             elif (currentUnit == unit):
-                #print('No conversion necessary for ' + matches.group(1) + '[' + matches.group(3) + ']')
+                #Debug: print('No conversion necessary for ' + matches.group(1) + '[' + matches.group(3) + ']')
                 newValue = float(matches.group(1).replace(',',''))
             else:
-                factor = FACTORS[unit] / FACTORS[currentUnit]
+                factor = FACTORS[currentUnit] / FACTORS[unit]
                 newValue = float(matches.group(1).replace(',','')) * factor
-                #print('Converting ' + matches.group(1) + '[' + matches.group(3) + '] into ' + str(newValue) + ' [' + unit + ']' )
+                #Debug: print('Converting ' + matches.group(1) + '[' + matches.group(3) + '] into ' + str(newValue) + ' [' + unit + ']' )
 
             row.pop(args.column)
             row[newColumnName] = newValue
