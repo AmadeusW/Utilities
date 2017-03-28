@@ -10,5 +10,5 @@ This repo contains pieces of code that I use now or I did in the past.
 * [Delete directories that match pattern](/scripts#scriptsdelete-directoriescsx)
 * [Watch for file changes and copy updated files](/scripts#scriptsfile-automationcsx)
 * [Enable and disable Fusion Log](/scripts#scriptsfusion-logcsx)
-* [Brings my favorite git aliases](/scripts#scriptsgit-aliascmd)
+* [Configures useful git aliases](/scripts#scriptsgit-aliascmd)
 * [Normalizes BenchmarkDotNet csv output](/scripts#scriptsnormalize-csvpy)

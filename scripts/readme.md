@@ -91,17 +91,14 @@ _Comes in handy on a freshly installed OS_
 
 The ones I use a lot:
 
-* `git put "commit message"` commits all unstaged files in single command
 * `git st` shows status in a minimal format
+* `git put "commit message"` commits all unstaged files in single command
+* `git amend` git commit, but appends staged changes to the previous commit
 * `git last` shows details of the last commit
-* `git diffs` shows details of staged changes - `diff --cached`
-* `git diffl` shows diff of the last change - `diff HEAD HEAD~`
-* `git ls` shows log with _stat_, _graph_ and _oneline_ flags
-* `git d` shows minimal diff of not staged files, followed by minimal status
-
-These I haven't had a chance to use a lot:
-
-* `git amend` modifies previous commit
+* `git diffs` shows diff of staged changes - `diff --cached`
+* `git diffl` shows diff of the commit - `diff HEAD HEAD~`
+* `git d` shows diff of the working tree, followed by minimal status
+* `git ls` shows a concise and abundant log
 * `git please` is `push --force-with-lease`
 
 ---
