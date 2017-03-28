@@ -1,6 +1,6 @@
 git config --global alias.st "status --short"
 git config --global alias.last "log --stat -1 HEAD"
-git config --global alias.ls "log --stat --pretty=oneline --graph"
+git config --global alias.ls "log --pretty=format:'%Cgreen %H %Creset%cr%Cred by %cn%Creset%n%s%n' --stat --graph"
 git config --global alias.put "!git add .; git commit -m"
 git config --global alias.please "push --force-with-lease"
 git config --global alias.amend "commit --amend --no-edit"
