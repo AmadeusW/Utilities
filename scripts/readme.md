@@ -93,7 +93,6 @@ The ones I use a lot:
 
 * `git st` shows status in a minimal format
 * `git put "commit message"` commits all unstaged files in single command
-* `git amend` git commit, but appends staged changes to the previous commit
 * `git last` shows details of the last commit
 * `git diffs` shows diff of staged changes - `diff --cached`
 * `git diffl` shows diff of the commit - `diff HEAD HEAD~`
