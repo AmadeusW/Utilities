@@ -84,17 +84,30 @@ csi "D:\Utilities\scripts\fusion-log.csx" 0
 
 ---
 
+### scripts\getDuplicateDirs.nim
+
+Finds subdirectories in the two trees that contain files with the same name. Useful to find duplicates when merging music collections.
+
+```
+getDuplicateDirs /path/one /path/two
+```
+
+---
+
 ### scripts\getignore.sh
 
 Downloads a .gitignore file for the specified language from [GitHub's gitignore repository](https://github.com/github/gitignore)
-Note: you must use the same casing as in the repo (PascalCase)
+
+Downloaded file is then renamed to `.gitignore`
+
+Note: The repo uses PascalCase when naming gitignore files.
 
 ```
 getignore Node
+```
+```
 getignore VisualStudio
 ```
-
-Downloaded file is renamed to `.gitignore`
 
 ---
 
