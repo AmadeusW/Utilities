@@ -7,6 +7,7 @@ This repo contains pieces of code that I use now or I did in the past.
 * [Watch for file changes and copy updated files](/scripts#scriptsfile-automationcsx)
 * [Enable and disable Fusion Log](/scripts#scriptsfusion-logcsx)
 * [Find directories with the same name](/scripts#scriptsgetduplicatedirsnim)
+* [Download .gitignore file](/scripts#scriptsgetignore)
 * [Configures useful git aliases](/scripts#scriptsgit-aliascmd)
 * [global.gitignore](/scripts#scriptsglobalgitignore)
 * [Normalizes BenchmarkDotNet csv output](/scripts#scriptsnormalize-csvpy)

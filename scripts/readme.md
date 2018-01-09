@@ -84,6 +84,20 @@ csi "D:\Utilities\scripts\fusion-log.csx" 0
 
 ---
 
+### scripts\getignore.sh
+
+Downloads a .gitignore file for the specified language from [GitHub's gitignore repository](https://github.com/github/gitignore)
+Note: you must use the same casing as in the repo (PascalCase)
+
+```
+getignore Node
+getignore VisualStudio
+```
+
+Downloaded file is renamed to `.gitignore`
+
+---
+
 ### scripts\git-alias.cmd
 Brings my favorite git aliases
 
