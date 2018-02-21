@@ -11,6 +11,7 @@ This repo contains pieces of code that I use now or I did in the past.
 * [Configures useful git aliases](/scripts#scriptsgit-aliascmd)
 * [global.gitignore](/scripts#scriptsglobalgitignore)
 * [Normalizes BenchmarkDotNet csv output](/scripts#scriptsnormalize-csvpy)
+* [Executes commands based on their aliases](/scripts#scriptsopennim)
 
 ## [Snippets](/snippets)
 

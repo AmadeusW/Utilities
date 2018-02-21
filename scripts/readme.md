@@ -155,3 +155,18 @@ into
 ```
 
 ---
+
+### scripts\open.nim
+
+Executes a file based on its alias
+
+```
+> open -a dl C:\users\ama\Downloads
+> open -a utilities /mnt/c/src/utilities
+> open -r utilities
+/mnt/c/src/utilities
+> open dl
+(dl opens)
+```
+
+---
