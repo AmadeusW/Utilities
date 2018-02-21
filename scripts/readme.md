@@ -9,6 +9,7 @@ Some .csx files require [scriptcs](http://scriptcs.net/), some work with just [c
 * [Enable and disable Fusion Log](#scriptsfusion-logcsx)
 * [Brings my favorite git aliases](#scriptsgit-aliascmd)
 * [Normalizes BenchmarkDotNet csv output](#scriptsnormalize-csvpy)
+* [Executes commands based on their aliases](#scriptsopennim)
 
 ## Description and sample usage:
 
