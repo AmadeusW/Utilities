@@ -18,3 +18,7 @@ This repo contains pieces of code that I use now or I did in the past.
 ## [Tools](/tools)
 * [javascript unescape](/tools#toolsunescape) [[use now]](http://amadeusw.com/utilities/tools/unescape/)
 * [code workspace](/tools#toolsworkspace) [[use now]](http://amadeusw.com/utilities/tools/workspace/)
+
+## Miscellaneous
+* [New system checklist](newSystemChecklist.md)
+* [Notes](notes.md)

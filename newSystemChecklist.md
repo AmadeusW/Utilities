@@ -11,4 +11,4 @@ New System Checklist
     * Tasks
         * Set parameter of default shell `/dir "D:\src\"`
 * `git clone https://github.com/amadeusw/utilities`
-
+* Apply [global.gitignore](/scripts#scriptsglobalgitignore)
