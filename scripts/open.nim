@@ -11,6 +11,7 @@ if not existsDir(configDir):
 
 if not existsFile(configPath):
     var emptyFile = newFileStream(configPath, fmWrite)
+     # Note: Initial data (aliases) is incorrect and prevents this script from running
     dump(aliases, emptyFile)
     emptyFile.close()
 
