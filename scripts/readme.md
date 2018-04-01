@@ -159,15 +159,27 @@ into
 
 ### scripts\open.nim
 
-Executes a file based on its alias
+Use shortcuts to access files
 
+Param -a records the alias
 ```
 > open -a dl C:\users\ama\Downloads
 > open -a utilities /mnt/c/src/utilities
+> open -a dosbox %localappdata%\DOSBox\dosbox-0.74.conf
+```
+Param -r prints alias' target
+```
 > open -r utilities
 /mnt/c/src/utilities
+```
+Param -l lists aliases
+
+Without parameters, the alias is executed
+```
+> open dosbox
+(text editor opens the file)
 > open dl
-(dl opens)
+(explorer opens the directory)
 ```
 
 ---
