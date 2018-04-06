@@ -97,17 +97,17 @@ getDuplicateDirs /path/one /path/two
 
 ### scripts\getignore.sh
 
-Downloads a .gitignore file for the specified language from [GitHub's gitignore repository](https://github.com/github/gitignore)
+Downloads a .gitignore file for the specified language from [GitHub's gitignore repository](https://github.com/github/gitignore) and renames it to `.gitignore`
 
-Downloaded file is then renamed to `.gitignore`
-
-Note: The repo uses PascalCase when naming gitignore files.
+Note: Uses PascalCase to specify the gitignore file.
 
 ```
 getignore Node
 ```
+
+on Windows, use the Linux subsystem
 ```
-getignore VisualStudio
+bash getignore VisualStudio
 ```
 
 ---
