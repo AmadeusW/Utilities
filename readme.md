@@ -1,7 +1,6 @@
 # Tools and Utilities
 
-This repo contains pieces of code that I use now or I did in the past.
-The [Wiki](/wiki) contains configuration and tips.
+This repo contains pieces of code that I use now or I did in the past and a [wiki](https://github.com/AmadeusW/utilities/wiki) with configuration and tips.
 
 ## [Scripts](/scripts)
 * [Delete directories that match pattern](/scripts#scriptsdelete-directoriescsx)
@@ -20,4 +19,4 @@ The [Wiki](/wiki) contains configuration and tips.
 * [javascript unescape](/tools#toolsunescape) [[use now]](http://amadeusw.com/utilities/tools/unescape/)
 * [code workspace](/tools#toolsworkspace) [[use now]](http://amadeusw.com/utilities/tools/workspace/)
 
-## [Wiki](/wiki)
+## [Wiki](https://github.com/AmadeusW/utilities/wiki)
