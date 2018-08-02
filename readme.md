@@ -1,6 +1,6 @@
-#Tools and Utilities
+# Tools and Utilities
 
-This repo contains pieces of code that I use now or I did in the past.
+This repo contains pieces of code that I use now or I did in the past and a [wiki](https://github.com/AmadeusW/utilities/wiki) with configuration and tips.
 
 ## [Scripts](/scripts)
 * [Delete directories that match pattern](/scripts#scriptsdelete-directoriescsx)
@@ -19,6 +19,4 @@ This repo contains pieces of code that I use now or I did in the past.
 * [javascript unescape](/tools#toolsunescape) [[use now]](http://amadeusw.com/utilities/tools/unescape/)
 * [code workspace](/tools#toolsworkspace) [[use now]](http://amadeusw.com/utilities/tools/workspace/)
 
-## Miscellaneous
-* [New system checklist](newSystemChecklist.md)
-* [Notes](notes.md)
+## [Wiki](https://github.com/AmadeusW/utilities/wiki)
