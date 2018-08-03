@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <title>Transform</title>
+    <link ref="stylesheet" href="style.css" >
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- production version, optimized for size and speed -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+</head>
+<body style="font-family: monospace">
+    <div id="transformApp">
+        <div id="tools">
+            <button v-on:click="toolUnescape">unescape</button>
+            <button v-on:click="toolLowercase">lowercase</button>
+            <a href="https://github.com/amadeusw/utilities">github</a>
+        </div>
+        <div id="main">
+            <div id="inbox">
+                <textarea rows='15' v-model="input"></textarea>
+            </div>
+            <div id="outbox">
+                <pre><code id="output">{{input | filter(getFilter())}}</code></pre>    
+            </div>
+        </div>
+    </div>
+</body>
+<script type='text/javascript' src="transform.js"></script>
+</html>

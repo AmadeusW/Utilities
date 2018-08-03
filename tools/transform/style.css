@@ -1,0 +1,17 @@
+#tools {
+    height: 30px;
+    background-color: #888;
+}
+#main {
+    display: flex;
+    background-color: #f00;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-around;
+}
+#inbox {
+    flex-grow: 1;
+}
+#outbox {
+    flex-grow: 1;
+}
