@@ -2,14 +2,18 @@
 
 [Go back to repo home](https://github.com/AmadeusW/utilities)
 
-Some .csx files require [scriptcs](http://scriptcs.net/), some work with just [csi](https://msdn.microsoft.com/en-us/magazine/mt614271.aspx)
+Featuring:
+* [mkgit - mkdir on steroids](#scriptsmkgitsh)
+* [git-alias - my essential git aliases](#scriptsgit-aliascmd)
+* [getignore - download the right .gitignore](#scriptsgetignoresh)
+* [open - simple aliases](#scriptsopennim)
 
+Also starring:
+* [Gets duplicate directories in two paths](#scriptsgetduplicatedirsnim)
+* [Normalizes BenchmarkDotNet csv output](#scriptsnormalize-csvpy)
 * [Delete directories that match pattern](#scriptsdelete-directoriescsx)
 * [Watch for file changes and copy updated files](#scriptsfile-automationcsx)
 * [Enable and disable Fusion Log](#scriptsfusion-logcsx)
-* [Brings my favorite git aliases](#scriptsgit-aliascmd)
-* [Normalizes BenchmarkDotNet csv output](#scriptsnormalize-csvpy)
-* [Executes commands based on their aliases](#scriptsopennim)
 
 ## Description and sample usage - my favs
 
